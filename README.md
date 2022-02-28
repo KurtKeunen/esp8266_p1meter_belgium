@@ -39,13 +39,11 @@ Connect the esp8266 to an RJ11 cable/connector following the diagram.
 
 On most Landys and Gyr models a 10K resistor should be used between the ESP's 3.3v and the p1's DATA (RXD) pin. Many howto's mention RTS requires 5V (VIN) to activate the P1 port, but for me 3V3 suffices.
 
-![Wiring](https://raw.githubusercontent.com/daniel-jong/esp8266_p1meter/master/assets/esp8266_p1meter_bb.png)
+![Wiring](https://github.com/KurtKeunen/esp8266_p1meter_belgium/blob/main/assets/esp8266_p1meter_bb.png)
 
 ### Optional: Powering the esp8266 using your DSMR5+ meter 
-<details><summary>Expand to see wiring description</summary>
 <p>
-  
-When using a 6 pin cable you can use the power source provided by the meter.
+When using a RJ12 cable you can use the power source provided by the meter.
   
 | P1 pin   | ESP8266 Pin |
 | ----     | ---- |
@@ -56,10 +54,9 @@ When using a 6 pin cable you can use the power source provided by the meter.
 | 5 - RXD (data) | RX (gpio3) |
 | 6 - GND  | GND  |
 
-![Wiring powered by meter](https://raw.githubusercontent.com/daniel-jong/esp8266_p1meter/master/assets/esp8266_p1meter_bb_PoweredByMeter.png)
+![Wiring powered by meter](https://github.com/KurtKeunen/esp8266_p1meter_belgium/blob/main/assets/esp8266_p1meter_bb_PoweredByMeter.png)
 
 </p>
-</details>
 
 ## Data Sent
 
@@ -94,19 +91,11 @@ sensors/power/p1meter/short_power_peaks 0
 
 Use this [example](https://github.com/KurtKeunen/esp8266_p1meter_belgium/blob/main/assets/p1_sensors.yaml) for home assistant's `sensor.yaml`
 
-The automatons are yours to create.
-And always remember that sending alerts in case of a power outtage only make sense when you own a UPS battery :)
-
 ## Thanks to
 
-This sketch is mostly copied and pasted from several other projects.
-Standing on the heads of giants, big thanks and great respect to the writers and/or creators of:
+This sketch is mostly copied and pasted from daniel-jong and based on jensd's work.
+Thanks and credits to them!
 
 - https://github.com/daniel-jong/esp8266_p1meter
-- https://github.com/jantenhove/P1-Meter-ESP8266
-- https://github.com/neographikal/P1-Meter-ESP8266-MQTT
-- http://gejanssen.com/howto/Slimme-meter-uitlezen/
-- https://github.com/rroethof/p1reader/
-- http://romix.macuser.nl/software.html
-- http://blog.regout.info/category/slimmeter/
-- http://domoticx.com/p1-poort-slimme-meter-hardware/
+- https://jensd.be/1205/linux/data-lezen-van-de-belgische-digitale-meter-met-de-p1-poort
+
