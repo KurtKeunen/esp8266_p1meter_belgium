@@ -1,170 +1,129 @@
 # Sensors for esp8266_p1meter to be used in Home Assistant
+mqtt:
+  sensor:
+    - name: "P1 Consumption Low Tariff"
+      device_class: "energy"
+      state_class: "total_increasing"
+      unit_of_measurement: "kWh"
+      state_topic: "p1meter/consumption_low_tarif"
+      value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 Consumption Low Tariff
-  unique_id: 'sensor.p1_consumption_low_tariff'
-  device_class: energy
-  state_class: total_increasing
-  unit_of_measurement: kWh
-  state_topic: "sensors/power/p1meter/consumption_low_tarif"
-  value_template: "{{ value|float / 1000 }}"
+    - name: "P1 Consumption High Tariff"
+      device_class: "energy"
+      state_class: "total_increasing"
+      unit_of_measurement: "kWh"
+      state_topic: "p1meter/consumption_high_tarif"
+      value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 Consumption High Tariff
-  unique_id: 'sensor.p1_consumption_high_tariff'
-  device_class: energy
-  state_class: total_increasing
-  unit_of_measurement: kWh
-  state_topic: "sensors/power/p1meter/consumption_high_tarif"
-  value_template: "{{ value|float / 1000 }}"
+    - name: "P1 Return Delivery High Tariff"
+      device_class: "energy"
+      state_class: "total_increasing"
+      unit_of_measurement: "kWh"
+      state_topic: "p1meter/returndelivery_high_tarif"
+      value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 Return Delivery High Tariff
-  unique_id: 'sensor.p1_delivery_high_tariff'
-  device_class: energy
-  state_class: total_increasing
-  unit_of_measurement: kWh
-  state_topic: "sensors/power/p1meter/returndelivery_high_tarif"
-  value_template: "{{ value|float / 1000 }}"
+    - name: "P1 Return Delivery Low Tariff"
+      device_class: "energy"
+      state_class: "total_increasing"
+      unit_of_measurement: "kWh"
+      state_topic: "p1meter/returndelivery_low_tarif"
+      value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 Return Delivery Low Tariff
-  unique_id: 'sensor.p1_delivery_low_tariff'
-  device_class: energy
-  state_class: total_increasing
-  unit_of_measurement: kWh
-  state_topic: "sensors/power/p1meter/returndelivery_low_tarif"
-  value_template: "{{ value|float / 1000 }}"
+    - name: "P1 Actual Power Consumption"
+      device_class: "power"
+      state_class: "measurement"
+      unit_of_measurement: "kW"
+      state_topic: "p1meter/actual_consumption"
+      value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 Actual Power Consumption
-  unique_id: 'sensor.p1_actual_power_consumption'
-  device_class: power
-  state_class: measurement
-  unit_of_measurement: 'kW'
-  state_topic: "sensors/power/p1meter/actual_consumption"
-  value_template: "{{ value|float / 1000 }}"
+    - name: "P1 Actual Return Delivery"
+      device_class: "power"
+      state_class: "measurement"
+      unit_of_measurement: "kW"
+      state_topic: "p1meter/actual_returndelivery"
+      value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 Actual Return Delivery
-  unique_id: 'sensor.p1_actual_return_delivery'
-  device_class: power
-  state_class: measurement
-  unit_of_measurement: 'kW'
-  state_topic: "sensors/power/p1meter/actual_returndelivery"
-  value_template: "{{ value|float / 1000 }}"
+    - name: "P1 L1 Instant Power Usage"
+      device_class: "power"
+      state_class: "measurement"
+      unit_of_measurement: "kW"
+      state_topic: "p1meter/l1_instant_power_usage"
+      value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 L1 Instant Power Usage
-  unique_id: 'sensor.p1_l1_instant_power_usage'
-  device_class: power
-  state_class: measurement
-  unit_of_measurement: 'kW'
-  state_topic: "sensors/power/p1meter/l1_instant_power_usage"
-  value_template: "{{ value|float / 1000 }}"
+    - name: "P1 L2 Instant Power Usage"
+      device_class: "power"
+      state_class: "measurement"
+      unit_of_measurement: "kW"
+      state_topic: "p1meter/l2_instant_power_usage"
+      value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 L2 Instant Power Usage
-  unique_id: 'sensor.p1_l2_instant_power_usage'
-  device_class: power
-  state_class: measurement
-  unit_of_measurement: 'kW'
-  state_topic: "sensors/power/p1meter/l2_instant_power_usage"
-  value_template: "{{ value|float / 1000 }}"
+    - name: "P1 L3 Instant Power Usage"
+      device_class: "power"
+      state_class: "measurement"
+      unit_of_measurement: "kW"
+      state_topic: "p1meter/l3_instant_power_usage"
+      value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 L3 Instant Power Usage
-  unique_id: 'sensor.p1_l3_instant_power_usage'
-  device_class: power
-  state_class: measurement
-  unit_of_measurement: 'kW'
-  state_topic: "sensors/power/p1meter/l3_instant_power_usage"
-  value_template: "{{ value|float / 1000 }}"
+    - name: "P1 L1 Instant Power Current"
+      device_class: "current"
+      state_class: "measurement"
+      unit_of_measurement: "A"
+      state_topic: "p1meter/l1_instant_power_current"
+      value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 L1 Instant Power Current
-  unique_id: 'sensor.p1_l1_instant_power_current'
-  device_class: current
-  state_class: measurement
-  unit_of_measurement: 'A'
-  state_topic: "sensors/power/p1meter/l1_instant_power_current"
-  value_template: "{{ value|float / 1000 }}"
+    - name: "P1 L2 Instant Power Current"
+      device_class: "current"
+      state_class: "measurement"
+      unit_of_measurement: "A"
+      state_topic: "p1meter/l2_instant_power_current"
+      value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 L2 Instant Power Current
-  unique_id: 'sensor.p1_l2_instant_power_current'
-  device_class: current
-  state_class: measurement
-  unit_of_measurement: 'A'
-  state_topic: "sensors/power/p1meter/l2_instant_power_current"
-  value_template: "{{ value|float / 1000 }}"
+    - name: "P1 L3 Instant Power Current"
+      device_class: "current"
+      state_class: "measurement"
+      unit_of_measurement: "A"
+      state_topic: "p1meter/l3_instant_power_current"
+      value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 L3 Instant Power Current
-  unique_id: 'sensor.p1_l3_instant_power_current'
-  device_class: current
-  state_class: measurement
-  unit_of_measurement: 'A'
-  state_topic: "sensors/power/p1meter/l3_instant_power_current"
-  value_template: "{{ value|float / 1000 }}"
+    - name: "P1 L1 Voltage"
+      device_class: voltage
+      state_class: "measurement"
+      unit_of_measurement: "V"
+      state_topic: "p1meter/l1_voltage"
+      value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 L1 Voltage
-  unique_id: 'sensor.p1_l1_voltage'
-  device_class: voltage
-  state_class: measurement
-  unit_of_measurement: 'V'   
-  state_topic: "sensors/power/p1meter/l1_voltage"
-  value_template: "{{ value|float / 1000 }}"
+    - name: "P1 L2 Voltage"
+      device_class: voltage
+      state_class: "measurement"
+      unit_of_measurement: "V"
+      state_topic: "p1meter/l2_voltage"
+      value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 L2 Voltage
-  unique_id: 'sensor.p1_l2_voltage'
-  device_class: voltage
-  state_class: measurement
-  unit_of_measurement: 'V'   
-  state_topic: "sensors/power/p1meter/l2_voltage"
-  value_template: "{{ value|float / 1000 }}"
+    - name: "P1 L3 Voltage"
+      device_class: voltage
+      state_class: "measurement"
+      unit_of_measurement: "V"
+      state_topic: "p1meter/l3_voltage"
+      value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 L3 Voltage
-  unique_id: 'sensor.p1_l3_voltage'
-  device_class: voltage
-  state_class: measurement
-  unit_of_measurement: 'V'   
-  state_topic: "sensors/power/p1meter/l3_voltage"
-  value_template: "{{ value|float / 1000 }}"
+    - name: "P1 Gas Usage"
+      device_class: "gas"
+      state_class: "total_increasing"
+      unit_of_measurement: "m³"
+      state_topic: "p1meter/gas_meter_m3"
+      value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 Gas Usage
-  unique_id: 'sensor.p1_gas_usage'
-  device_class: gas
-  state_class: total_increasing
-  unit_of_measurement: 'm³'
-  state_topic: "sensors/power/p1meter/gas_meter_m3"
-  value_template: "{{ value|float / 1000 }}"
+    - name: "P1 Actual Tariff Group"
+      state_topic: "p1meter/actual_tarif_group"
 
-- platform: mqtt
-  name: P1 Actual Tariff Group
-  unique_id: 'sensor.p1_actual_tariff_group'
-  state_topic: "sensors/power/p1meter/actual_tarif_group"
+    - name: "P1 Short Power Outages"
+      state_topic: "p1meter/short_power_outages"
 
-- platform: mqtt
-  name: P1 Short Power Outages
-  unique_id: 'sensor.p1_short_power_outages'
-  state_topic: "sensors/power/p1meter/short_power_outages"
+    - name: "P1 Long Power Outages"
+      state_topic: "p1meter/long_power_outages"
 
-- platform: mqtt
-  name: P1 Long Power Outages
-  unique_id: 'sensor.p1_long_power_outages'
-  state_topic: "sensors/power/p1meter/long_power_outages"
+    - name: "P1 Short Power Drops"
+      state_topic: "p1meter/short_power_drops"
 
-- platform: mqtt
-  name: P1 Short Power Drops
-  unique_id: 'sensor.p1_short_power_drops'
-  state_topic: "sensors/power/p1meter/short_power_drops"
-
-- platform: mqtt
-  name: P1 Short Power Peaks
-  unique_id: 'sensor.p1_short_power_peaks'
-  state_topic: "sensors/power/p1meter/short_power_peaks"
+    - name: "P1 Short Power Peaks"
+      state_topic: "p1meter/short_power_peaks"
