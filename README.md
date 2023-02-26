@@ -85,6 +85,9 @@ sensors/power/p1meter/short_power_outages 3
 sensors/power/p1meter/long_power_outages 1
 sensors/power/p1meter/short_power_drops 0
 sensors/power/p1meter/short_power_peaks 0
+sensors/power/p1meter/current_average_demand 0.081
+sensors/power/p1meter/maximum_demand_month 4632
+sensors/power/p1meter/maximum_demand_13_months 4019
 ```
 
 ## Home Assistant Configuration
