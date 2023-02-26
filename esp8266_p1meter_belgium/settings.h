@@ -3,7 +3,8 @@
 // **********************************
 
 // Update treshold in milliseconds, messages will only be sent on this interval
-#define UPDATE_INTERVAL 60000  // 1 minute
+#define UPDATE_INTERVAL 5000  // 5 sec
+//#define UPDATE_INTERVAL 60000  // 1 minute
 //#define UPDATE_INTERVAL 300000 // 5 minutes
 
 // * Baud rate for both hardware and software 
@@ -73,6 +74,11 @@ long SHORT_POWER_OUTAGES;
 long LONG_POWER_OUTAGES;
 long SHORT_POWER_DROPS;
 long SHORT_POWER_PEAKS;
+
+// Capacity data values
+long CURRENT_AVERAGE_DEMAND;
+long MAXIMUM_DEMAND_MONTH;
+long MAXIMUM_DEMAND_13_MONTHS;
 
 // * Set during CRC checking
 unsigned int currentCRC = 0;

@@ -127,3 +127,25 @@ mqtt:
 
     - name: "P1 Short Power Peaks"
       state_topic: "p1meter/short_power_peaks"
+    
+    - name: P1 Current Average Demand
+      unit_of_measurement: "kW"
+      device_class: power
+      state_class: measurement
+      state_topic: "sensors/power/p1meter/current_average_demand"
+      value_template: "{{ value|float / 1000 }}"
+
+    - name: P1 Maximum Demand Running Month
+      unit_of_measurement: "kW"
+      device_class: power
+      state_class: measurement
+      state_topic: "sensors/power/p1meter/maximum_demand_month"
+      value_template: "{{ value|float / 1000 }}"
+
+    - name: P1 Maximum Demand Last 13 Months
+      unit_of_measurement: "kW"
+      device_class: power
+      state_class: measurement
+      state_topic: "sensors/power/p1meter/maximum_demand_13_months"
+      value_template: "{{ value|float / 1000 }}"
+    
