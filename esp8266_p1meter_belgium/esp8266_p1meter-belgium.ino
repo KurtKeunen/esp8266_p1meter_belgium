@@ -151,6 +151,10 @@ void send_data_to_broker()
     send_metric("long_power_outages", LONG_POWER_OUTAGES);
     send_metric("short_power_drops", SHORT_POWER_DROPS);
     send_metric("short_power_peaks", SHORT_POWER_PEAKS);
+
+    send_metric("current_average_demand", CURRENT_AVERAGE_DEMAND);
+    send_metric("maximum_demand_month", MAXIMUM_DEMAND_MONTH);
+    send_metric("maximum_demand_13_months", MAXIMUM_DEMAND_13_MONTHS);
 }
 
 // **********************************
@@ -406,6 +410,27 @@ bool decode_telegram(int len)
     if (strncmp(telegram, "1-0:32.36.0", strlen("1-0:32.36.0")) == 0)
     {
         SHORT_POWER_PEAKS = getValue(telegram, len, '(', ')');
+    }
+
+    // 1-0:1.4.0
+    // 1-0:1.4.0 = Current average demand
+    if (strncmp(telegram, "1-0:1.4.0", strlen("1-0:1.4.0")) == 0)
+    {
+        CURRENT_AVERAGE_DEMAND = getValue(telegram, len, '(', '*');
+    }
+
+    // 1-0:1.6.0
+    // 1-0:1.6.0 = Maximum demand month
+    if (strncmp(telegram, "1-0:1.6.0", strlen("1-0:1.6.0")) == 0)
+    {
+        MAXIMUM_DEMAND_MONTH = getValue(telegram, len, '(', '*');
+    }
+
+    // 0-0:98.1.0
+    // 0-0:98.1.0 = Maximum demand last 13 months
+    if (strncmp(telegram, "0-0:98.1.0", strlen("0-0:98.1.0")) == 0)
+    {
+        MAXIMUM_DEMAND_13_MONTHS = getValue(telegram, len, '(', '*');
     }
 
     return validCRCFound;
