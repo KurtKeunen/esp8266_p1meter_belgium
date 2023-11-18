@@ -585,6 +585,7 @@ void setup()
 
     // Setup a hw serial connection for communication with the P1 meter and logging (not using inversion)
     Serial.begin(BAUD_RATE, SERIAL_8N1, SERIAL_FULL);
+    Serial.setRxBufferSize(1024);
     Serial.println("");
     Serial.println("Swapping UART0 RX to inverted");
     Serial.flush();
